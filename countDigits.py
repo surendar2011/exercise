@@ -1,19 +1,21 @@
-class Solution:
-    def reverse_digit(self, N):
-        # Convert N to a string, reverse it, and remove leading zeroes
-        reversed_str = str(N)[::-1].lstrip('0')
-        
-        # Convert the reversed string back to an integer
-        reversed_num = int(reversed_str)
-        
-        return reversed_num
+#Count digits in a number(Solving above last digit prob wil make this easy for you)
 
-if __name__ == '__main__':
-    # Prompt the user to input the value of N
+class Solution:
+    def evenlyDivides(self, N):
+        n = str(N)  # Convert N to a string
+        count = 0   # Initialize the count to 0
+        
+        for i in n:  # Loop through each digit in the string
+            digit = int(i)  # Convert the character to an integer
+            
+            if digit == 0:
+                continue  # Skip if the digit is 0
+            elif N % digit == 0:
+                count += 1  # Increment the count if N is divisible by the digit
+        
+        return count
+
+if __name__ == "__main__":
+    solution = Solution()
     N = int(input("Enter a number: "))
-    
-    # Create an instance of the Solution class
-    ob = Solution()
-    
-    # Call the reverse_digit method to reverse the digits of N and print the result
-    print(ob.reverse_digit(N))
+    print(solution.evenlyDivides(N))  # Output the result
